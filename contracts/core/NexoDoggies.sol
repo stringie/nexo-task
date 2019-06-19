@@ -13,7 +13,7 @@ contract NexoDoggies is ERC721, Ownable {
 
     Doge[] doggies;
 
-    function createDoge(string memory _name, string memory _catchphrase, address _owner) public onlyOwner {
+    function createDoge(string memory _name, string memory _catchphrase, address _owner) public {
         require(bytes(_name).length > 0, "Doge name must not be null");
         require(bytes(_catchphrase).length > 0, "Doge name must not be null");
 
@@ -29,5 +29,9 @@ contract NexoDoggies is ERC721, Ownable {
         uint256 _newDogeId = doggies.push(_doge);
 
         _mint(_owner, _newDogeId);
+    }
+
+    function getDoge(uint8 id) public view returns (string memory) {
+        return doggies[id].name;
     }
 }
