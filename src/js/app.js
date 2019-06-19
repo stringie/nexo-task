@@ -37,10 +37,10 @@ App = {
         });
     },
 
-    createDoge: function() {
+    createDoge: function(name, phrase) {
         App.contracts.Doggies.deployed().then(function(instance) {
             return instance
-                .createDoge("doge0", "wow", App.account, {
+                .createDoge(name, phrase, {
                     from: App.account
                 })
                 .then(function(result) {
@@ -49,11 +49,63 @@ App = {
         });
     },
 
-    getDoge: function() {
+    speak: function(id) {
         App.contracts.Doggies.deployed().then(function(instance) {
-            return instance.getDoge(0, { from: App.account }).then(function(result) {
-                console.log(result);
-            });
+            return instance
+                .getDoge(id, {
+                    from: App.account
+                })
+                .then(function(result) {
+                    console.log(result);
+                });
+        });
+    },
+
+    ownerOf: function(id) {
+        App.contracts.Doggies.deployed().then(function(instance) {
+            return instance
+                .ownerOf(id, {
+                    from: App.account
+                })
+                .then(function(result) {
+                    console.log(result);
+                });
+        });
+    },
+
+    balanceOf: function(owner) {
+        App.contracts.Doggies.deployed().then(function(instance) {
+            return instance
+                .balanceOf(owner, {
+                    from: App.account
+                })
+                .then(function(result) {
+                    console.log(result);
+                });
+        });
+    },
+
+    approve: function(to, id) {
+        App.contracts.Doggies.deployed().then(function(instance) {
+            return instance
+                .approve(to, id, {
+                    from: App.account
+                })
+                .then(function(result) {
+                    console.log(result);
+                });
+        });
+    },
+
+    safeTransferFrom: function(from, to, id) {
+        App.contracts.Doggies.deployed().then(function(instance) {
+            return instance
+                .safeTransferFrom(from, to, id, {
+                    from: App.account
+                })
+                .then(function(result) {
+                    console.log(result);
+                });
         });
     }
 };
