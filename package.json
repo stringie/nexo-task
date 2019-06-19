@@ -1,0 +1,27 @@
+{
+  "name": "nexo-task",
+  "version": "1.0.0",
+  "description": "Build a simple DApp like CryptoKitties. Don’t care much about the details. Implement what you think is essential. As a minimum:",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "run": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stringie/nexo-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stringie/nexo-task/issues"
+  },
+  "homepage": "https://github.com/stringie/nexo-task#readme",
+  "dependencies": {
+    "lite-server": "^2.5.3",
+    "web3": "^1.0.0-beta.55"
+  }
+}
