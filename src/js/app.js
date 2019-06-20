@@ -4,6 +4,11 @@ App = {
     account: "0x0",
     address: "0x116e679B2c694e3ce7523EdD50583869D2AF6Cf0",
 
+    display: function(result) {
+        document.getElementById("output").innerText = result;
+        $("#modal").modal();
+    },
+
     init: function() {
         return App.initWeb3();
     },
@@ -46,7 +51,7 @@ App = {
                     from: App.account
                 })
                 .then(function(result) {
-                    console.log(result);
+                    App.display(result.tx);
                 });
         });
     },
@@ -54,11 +59,11 @@ App = {
     speak: function(id) {
         App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
-                .speak(id, {
+                .speak(Number(id), {
                     from: App.account
                 })
                 .then(function(result) {
-                    console.log(result);
+                    App.display(result);
                 });
         });
     },
@@ -70,7 +75,7 @@ App = {
                     from: App.account
                 })
                 .then(function(result) {
-                    console.log(result);
+                    App.display(result);
                 });
         });
     },
@@ -82,7 +87,7 @@ App = {
                     from: App.account
                 })
                 .then(function(result) {
-                    console.log(result);
+                    App.display(result.c[0]);
                 });
         });
     },
@@ -94,7 +99,7 @@ App = {
                     from: App.account
                 })
                 .then(function(result) {
-                    console.log(result);
+                    App.display(result);
                 });
         });
     },
@@ -102,11 +107,11 @@ App = {
     safeTransferFrom: function(from, to, id) {
         App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
-                .safeTransferFrom(from, to, id, {
+                .transferFrom(from, to, id, {
                     from: App.account
                 })
                 .then(function(result) {
-                    console.log(result);
+                    App.display(result);
                 });
         });
     }

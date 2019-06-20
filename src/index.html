@@ -11,12 +11,74 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
-        <button onclick="App.createDoge('doge','wow')">Doge</button>
-        <button onclick="App.speak(0)">Get</button>
+        <!-- <button onclick="App.createDoge('doge','wow')">Doge</button>
+        <button onclick="App.speak(0)">Get</button> -->
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <div class="container">
+              <div class="input-group mb-3">
+                <input id="doge-name" type="text" class="form-control" placeholder="Doge's name!" aria-label="" aria-describedby="basic-addon2">
+                <input id="doge-phrase" type="text" class="form-control" placeholder="Doge's catchphrase! wow!" aria-label="" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="App.createDoge(document.getElementById('doge-name').value, document.getElementById('doge-phrase').value)">Create Doge</button>
+                </div>
+              </div>
+              <div class="input-group">
+                <input id="doge-speak" type="text" class="form-control" placeholder="Doge's id!" aria-label="" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="App.speak(document.getElementById('doge-speak').value)">Speak!</button>
+                </div>
+              </div>
+              <div class="input-group">
+                <input id="doge-owner" type="text" class="form-control" placeholder="Doge's id!" aria-label="" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="App.ownerOf(document.getElementById('doge-owner').value)">See owner!</button>
+                </div>
+              </div>
+              <div class="input-group">
+                <input id="doge-balance" type="text" class="form-control" placeholder="Owner's hash!" aria-label="" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="App.balanceOf(document.getElementById('doge-balance').value)">Get Balance!</button>
+                </div>
+              </div>
+              <div class="input-group">
+                <input id="doge-approve-owner" type="text" class="form-control" placeholder="Approved owner's hash!" aria-label="" aria-describedby="basic-addon2">
+                <input id="doge-approve-id" type="text" class="form-control" placeholder="Doge's id!" aria-label="" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="App.approve(document.getElementById('doge-approve-owner').value, document.getElementById('doge-approve-id').value)">Approve!</button>
+                </div>
+              </div>
+              <div class="input-group">
+                <input id="doge-transfer-from" type="text" class="form-control" placeholder="From owner!" aria-label="" aria-describedby="basic-addon2">
+                <input id="doge-transfer-to" type="text" class="form-control" placeholder="To owner!" aria-label="" aria-describedby="basic-addon2">
+                <input id="doge-transfer-id" type="text" class="form-control" placeholder="Doge's id!" aria-label="" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="App.safeTransferFrom(document.getElementById('doge-transfer-from').value, document.getElementById('doge-transfer-to').value, document.getElementById('doge-transfer-id').value)">Transfer!</button>
+                </div>
+              </div>
+        </div>
+        <div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Output</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div id="output" class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/web3.min.js"></script>
         <script src="js/truffle-contract.js"></script>
