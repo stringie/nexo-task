@@ -20,8 +20,12 @@ The contact is deployed on the kovan testnet and is visible here on [etherscan](
 ### IPFS
 **Important: You must have MetaMask; You must have selected Kovan Testnet; You must have some KETH to interact with the contracts.**
 
-The web app has been deployed on the IPFS [here](https://gateway.pinata.cloud/ipfs/QmPdiFNxD4psMnARxFS2Wu2roH6D531wY6YbNbq4Lo7uDF/src/).
+The web app has been deployed fully functioning on the IPFS [here](https://gateway.pinata.cloud/ipfs/QmPdiFNxD4psMnARxFS2Wu2roH6D531wY6YbNbq4Lo7uDF/src/).
 
 ## Disclaimer
 
 Everything in this repo is just to serve as a quick example. The test could and should be many more, the core contract should be bigger and actually useful, the web app should have more functionality and the html/css should be much more developed. This is quite obvious but it still has to be stated. Given 1.5 days for this task - this is the result, an MVP.
+
+## Running locally
+
+It is entirely possible to run locally using ganache-cli (`ganache-cli && truffle migrate`) and not using metamask if one so desires.
