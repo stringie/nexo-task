@@ -1,9 +1,8 @@
 pragma solidity ^0.5.0;
 
 import "../ERC/ERC721.sol";
-import "../common/Ownable.sol";
 
-contract NexoDoggies is ERC721, Ownable {
+contract NexoDoggies is ERC721 {
     struct Doge {
         string name;
         string catchphrase;

@@ -2,6 +2,7 @@ App = {
     web3Provider: null,
     contracts: {},
     account: "0x0",
+    address: "0x116e679B2c694e3ce7523EdD50583869D2AF6Cf0",
 
     init: function() {
         return App.initWeb3();
@@ -18,6 +19,7 @@ App = {
             App.web3Provider = new Web3.providers.HttpProvider("http://127.0.0.1:8545");
             web3 = new Web3(App.web3Provider);
         }
+
         return App.initContract();
     },
 
@@ -38,7 +40,7 @@ App = {
     },
 
     createDoge: function(name, phrase) {
-        App.contracts.Doggies.deployed().then(function(instance) {
+        App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
                 .createDoge(name, phrase, {
                     from: App.account
@@ -50,9 +52,9 @@ App = {
     },
 
     speak: function(id) {
-        App.contracts.Doggies.deployed().then(function(instance) {
+        App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
-                .getDoge(id, {
+                .speak(id, {
                     from: App.account
                 })
                 .then(function(result) {
@@ -62,7 +64,7 @@ App = {
     },
 
     ownerOf: function(id) {
-        App.contracts.Doggies.deployed().then(function(instance) {
+        App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
                 .ownerOf(id, {
                     from: App.account
@@ -74,7 +76,7 @@ App = {
     },
 
     balanceOf: function(owner) {
-        App.contracts.Doggies.deployed().then(function(instance) {
+        App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
                 .balanceOf(owner, {
                     from: App.account
@@ -86,7 +88,7 @@ App = {
     },
 
     approve: function(to, id) {
-        App.contracts.Doggies.deployed().then(function(instance) {
+        App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
                 .approve(to, id, {
                     from: App.account
@@ -98,7 +100,7 @@ App = {
     },
 
     safeTransferFrom: function(from, to, id) {
-        App.contracts.Doggies.deployed().then(function(instance) {
+        App.contracts.Doggies.at(App.address).then(function(instance) {
             return instance
                 .safeTransferFrom(from, to, id, {
                     from: App.account
